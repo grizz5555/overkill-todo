@@ -1,4 +1,4 @@
-#What is that ?
+# What is that ?
 This project is an attempt from Guillaume Masson (aka me) for an exercise.
 The above lines are describing what I am trying to do.
 
