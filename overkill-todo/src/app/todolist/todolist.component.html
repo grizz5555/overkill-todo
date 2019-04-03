@@ -1,0 +1,11 @@
+<h1>The Overkill Todo List</h1>
+
+<div>
+  <h3>Les items de la todo list :</h3>
+  <p *ngIf="todos.length === 0">Aucune Todo à Afficher, merci d'en créer une !</p>
+  <div *ngFor="let todo of todos">
+    <mat-checkbox >{{todo.title}}</mat-checkbox>
+  </div>
+</div>
+
+

@@ -1,0 +1,23 @@
+html {
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-app {
+  background-color: antiquewhite;
+  width: 700px;
+  z-index: 10;
+  padding: 30px;
+}
