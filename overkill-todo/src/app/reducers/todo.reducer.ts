@@ -17,10 +17,17 @@ export interface State {
 export function reducer(state: State = initialState, action: CustomAction) {
     switch(action.type) {
         case 'NEW_TODO':
+            const newTodo: TodoItem = {
+                id: Math.max.apply(Math, state.todos.map(x => x.id)) + 1,
+                title: action.payload,
+                content: null,
+                close: false
+            }
+        
             const newState: State = 
              {
                 ...state,
-                todos: [... state.todos, action.payload]
+                todos: [... state.todos, newTodo]
             } 
             return newState;
         case 'TOGGLE_CLOSE':

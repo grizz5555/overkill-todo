@@ -13,17 +13,20 @@ export class TodolistComponent implements OnInit {
 
   todos: TodoItem[] = [];
 
+  newTodoTitle: String = null;
+
   ngOnInit() {
     this.store.select('appState').subscribe( data => {
       this.todos = [...data.todos].sort((a, b) => {
         if (a.close === b.close) {
-          return a.id - b.id;
+          return b.id - a.id;
         }
         if (a.close) {
           return 1;
         }  
         return -1;
       });
+      this.newTodoTitle = null;
     })
   }
 
@@ -33,8 +36,7 @@ export class TodolistComponent implements OnInit {
   }
 
   newTodo() {
-    const todo = {title: 'Nouvelle todo', content: '', close: false};
-    this.store.dispatch({type: "NEW_TODO", payload: todo});
+    this.store.dispatch({type: "NEW_TODO", payload: this.newTodoTitle});
   }
 
 }

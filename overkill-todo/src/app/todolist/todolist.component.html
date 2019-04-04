@@ -7,6 +7,13 @@
     <mat-checkbox [checked]="todo.close" (change)="toggleCheckbox(todo.id)" [ngClass]="todo.close ? 'closed-item' : 'open-item'">{{todo.title}}</mat-checkbox>
     <mat-icon [routerLink]="['/my-todo',todo.id]" class="zoom-in">zoom_in</mat-icon>
   </div>
+
+  <form #todoForm="ngForm">
+    <mat-form-field>
+      <input matInput name="newTodoTitle" placeholder="Nouvelle todo" [(ngModel)]="newTodoTitle">
+    </mat-form-field>
+    <button mat-fab (click)="newTodo()" [disabled]="newTodoTitle == null"><mat-icon>add</mat-icon></button>
+  </form>
 </div>
 
 
