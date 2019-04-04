@@ -15,8 +15,21 @@ export class TodolistComponent implements OnInit {
 
   ngOnInit() {
     this.store.select('appState').subscribe( data => {
-      this.todos = [...data.todos];
+      this.todos = [...data.todos].sort((a, b) => {
+        if (a.close === b.close) {
+          return a.id - b.id;
+        }
+        if (a.close) {
+          return 1;
+        }  
+        return -1;
+      });
     })
+  }
+
+  toggleCheckbox(id: number) {
+    console.log('id : ' + id);
+    this.store.dispatch({type: 'TOGGLE_CLOSE', payload: id});
   }
 
   newTodo() {

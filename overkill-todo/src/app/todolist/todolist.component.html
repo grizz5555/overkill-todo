@@ -4,7 +4,7 @@
   <h3>Les items de la todo list :</h3>
   <p *ngIf="todos.length === 0">Aucune Todo à Afficher, merci d'en créer une !</p>
   <div *ngFor="let todo of todos">
-    <mat-checkbox >{{todo.title}}</mat-checkbox>
+    <mat-checkbox [checked]="todo.close" (change)="toggleCheckbox(todo.id)" [ngClass]="todo.close ? 'closed-item' : 'open-item'">{{todo.title}}</mat-checkbox>
   </div>
 </div>
 
