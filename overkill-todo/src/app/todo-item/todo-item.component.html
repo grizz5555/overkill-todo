@@ -1,0 +1,17 @@
+<button mat-fab [routerLink]="['/my-todos']"><mat-icon>home</mat-icon></button>
+<p *ngIf="!todo">
+  Aucune Todo ne correspond. <br> Veuillez nous excuser pour la gene occasionnée.
+</p>
+
+<div *ngIf="todo">
+  <h1>{{todo.title}}</h1>
+  <p>Cette todo est actuellement <span *ngIf="!todo.close">ouverte</span><span *ngIf="todo.close">fermée</span>.</p>
+  <form #todoForm="ngForm">
+    <mat-form-field>
+      <input matInput name="newContent" placeholder="Description" [(ngModel)]="newContent">
+    </mat-form-field>
+  </form>
+  <br>
+  <button [routerLink]="['/my-todos']">Retour</button>
+  <button [disabled]="todo.content == newContent" (click)="updateTodoContent()">Enregistrer</button>
+</div>

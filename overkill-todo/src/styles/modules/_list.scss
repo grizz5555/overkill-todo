@@ -5,3 +5,19 @@
 .open-item {
     text-decoration: none;
 }
+
+.item {
+    width: 100%;
+    margin: 2px;
+    padding: 1px;
+}
+
+.zoom-in {
+    font-size: 15px;
+    margin-left: 15px;
+} 
+
+.zoom-in:hover {
+    color: darkblue;
+    cursor: pointer;
+}

@@ -27,12 +27,16 @@ export function reducer(state: State = initialState, action: CustomAction) {
             const toggleState: State =
             {
                 ...state
-            };
-            console.log(action.payload);
-            console.log(toggleState.todos.find(x => x.id === action.payload));
-            
+            };            
             toggleState.todos.find(x => x.id === action.payload).close = !toggleState.todos.find(x => x.id === action.payload).close;
             return toggleState;
+        case 'TODO_UPDATECONTENT':
+            const updateState: State =
+            {
+                ...state
+            }
+            updateState.todos.find(x => x.id == action.payload.id).content = action.payload.content;
+            return updateState;
         default:
             return state;
     }
